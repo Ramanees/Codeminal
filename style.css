@@ -1,0 +1,150 @@
+/* ---------- styles.css ---------- */
+
+/* Shared core styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom right, #e0f7fa, white);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form Container */
+.form-box {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  padding: 20px 30px;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  width: 120px;
+  border-radius: 12px;
+}
+
+/* Form Inputs */
+label {
+  display: block;
+  margin: 12px 0 5px;
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Checkbox + Options */
+.checkbox-wrap {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 15px;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: black;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.or-separator {
+  text-align: center;
+  margin: 10px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Social Button */
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.social-btn:hover {
+  background: #f5f5f5;
+}
+
+.social-btn img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+/* Text */
+p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.switch {
+  color: black;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Misc */
+.gradient-bg {
+  background: linear-gradient(90deg, #6366f1, #7c3aed);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(to bottom right, #e0f7fa, white);
+  
+}
+.nav-item:hover .dropdown-menu {
+  display: block;
+}
+
+
+

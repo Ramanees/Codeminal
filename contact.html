@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Codeminal</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { 
+            'sans': ['Inter', 'sans-serif'], 
+            'display': ['Poppins', 'sans-serif'], 
+          },
+          boxShadow: {
+            'glow': '0 0 15px rgba(99, 102, 241, 0.5)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom styles for select dropdowns and toast notifications */
+    .select-item[data-state="checked"] {
+        background-color: #eef2ff; /* indigo-50 */
+        color: #4338ca; /* indigo-700 */
+        font-weight: 600;
+    }
+    .toast-notification {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 1rem 1.5rem;
+        border-radius: 0.5rem;
+        color: white;
+        z-index: 100;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .toast-notification.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .toast-success { background-color: #22c55e; } /* green-500 */
+    .toast-error { background-color: #ef4444; } /* red-500 */
+  </style>
+
+</head>
+<body class="font-sans bg-gray-50">
+
+<header class="shadow-sm bg-white sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+    <a href="/index.html" class="text-2xl font-display text-indigo-600">Codeminal</a>
+    
+    <nav class="hidden md:flex items-center space-x-8">
+      <div class="relative nav-item">
+        <a href="/services.html" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300">Services</a>
+        <div class="dropdown-menu absolute hidden bg-white p-6 w-max top-full mt-4 -ml-4 z-50">
+          <div class="grid grid-cols-2 gap-x-12 gap-y-6">
+            <div>
+              <h3 class="font-bold text-gray-800 mb-2 text-sm uppercase tracking-wider">IT Service</h3>
+              <a href="#" class="block text-gray-600 hover:text-indigo-600 mb-1">Eduassess</a>
+              <a href="#" class="block text-gray-600 hover:text-indigo-600">Railresourse</a>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-800 mb-2 text-sm uppercase tracking-wider">Marketing Service</h3>
+              <a href="#" class="block text-gray-600 hover:text-indigo-600 mb-1">Arket</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="relative nav-item">
+        <a href="/solutions.html" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300">Solutions</a>
+        <div class="dropdown-menu absolute hidden bg-white p-6 w-max top-full mt-4 -ml-4 z-50">
+          <div class="grid grid-cols-2 gap-x-12 gap-y-6">
+            <div>
+              <h3 class="font-bold text-gray-800 mb-2 text-sm uppercase tracking-wider">Marketing Solutions</h3>
+              <a href="#" class="block text-gray-600 hover:text-indigo-600 mb-1">Arket</a>
+            </div>
+            <div>
+              <h3 class="font-bold text-gray-800 mb-2 text-sm uppercase tracking-wider">IT Solutions</h3>
+              <a href="#" class="block text-gray-600 hover:text-indigo-600 mb-1">Eduassess</a>
+              <a href="#" class="block text-gray-600 hover:text-indigo-600">Railresourse</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="relative nav-item">
+        <a href="/resources.html" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300">Resources</a>
+        <div class="dropdown-menu absolute hidden bg-white p-6 w-max top-full mt-4 -ml-16 z-50">
+          <div class="flex flex-col space-y-2">
+            <a href="#" class="block text-gray-600 hover:text-indigo-600">Careers</a>
+            <a href="#" class="block text-gray-600 hover:text-indigo-600">About Codeminal</a>
+            <a href="#" class="block text-gray-600 hover:text-indigo-600">Help Center</a>
+            <a href="#" class="block text-gray-600 hover:text-indigo-600">Codeminal Support</a>
+            <a href="#" class="block text-gray-600 hover:text-indigo-600">Contact us</a>
+            <a href="#" class="block text-gray-600 hover:text-indigo-600">Partner with us</a>
+          </div>
+        </div>
+      </div>
+      <a href="/pricing.html" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300">Pricing</a>
+    </nav>
+    
+    <div class="hidden md:flex items-center space-x-6">
+      <a href="/contact.html" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 text-sm font-semibold">Contact Sales</a>
+      <a href="/login.html" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 text-sm font-semibold">Login</a>
+      <a href="/signup.html" class="text-white bg-indigo-600 hover:bg-indigo-700 px-5 py-2.5 rounded-md transition-colors duration-300 font-semibold text-sm shadow">Sign up</a>
+    </div>
+  </div>
+</header>
+
+<main>
+    <section class="bg-white py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-display text-gray-900 sm:text-5xl">Contact Our Team</h1>
+            <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+                Have questions about our solutions, pricing, or enterprise features? Fill out the form below, and we'll get in touch with you shortly.
+            </p>
+        </div>
+    </section>
+
+    <section class="pb-16 sm:pb-24">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-lg shadow-xl border border-gray-200 p-8">
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="firstName" class="block text-sm font-medium text-gray-700">First name <span class="text-red-500">*</span></label>
+                            <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:shadow-glow transition-all" required>
+                        </div>
+                        <div>
+                            <label for="lastName" class="block text-sm font-medium text-gray-700">Last name <span class="text-red-500">*</span></label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:shadow-glow transition-all" required>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Work email <span class="text-red-500">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="you@company.com" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:shadow-glow transition-all" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:shadow-glow transition-all">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="company" class="block text-sm font-medium text-gray-700">Company name <span class="text-red-500">*</span></label>
+                        <input type="text" id="company" name="company" placeholder="Your company name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:shadow-glow transition-all" required>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="role" class="block text-sm font-medium text-gray-700">Role <span class="text-red-500">*</span></label>
+                            <select id="role" name="role" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md focus:shadow-glow transition-all" required>
+                                <option value="" disabled selected>Select your role</option>
+                                </select>
+                        </div>
+                        <div>
+                            <label for="jobLevel" class="block text-sm font-medium text-gray-700">Job level <span class="text-red-500">*</span></label>
+                            <select id="jobLevel" name="jobLevel" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md focus:shadow-glow transition-all" required>
+                                <option value="" disabled selected>Select job level</option>
+                                </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="interest" class="block text-sm font-medium text-gray-700">What are you interested in? <span class="text-red-500">*</span></label>
+                        <select id="interest" name="interest" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md focus:shadow-glow transition-all" required>
+                            <option value="" disabled selected>Select your interest</option>
+                            </select>
+                    </div>
+
+                    <div>
+                        <label for="additionalDetails" class="block text-sm font-medium text-gray-700">What else would you like to discuss?</label>
+                        <textarea id="additionalDetails" name="additionalDetails" rows="4" placeholder="Please provide any other details here." class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:shadow-glow transition-all"></textarea>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" class="w-full h-12 flex justify-center py-3 px-4 border border-transparent rounded-md shadow-lg text-base font-semibold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 hover:shadow-glow transition-all duration-300 hover:scale-105 active:scale-95">
+                            Submit
+                        </button>
+                    </div>
+
+                    <p class="text-xs text-gray-500 leading-relaxed text-center">
+                        By submitting, you agree to Codeminal's 
+                        <a href="#" class="font-medium text-indigo-600 hover:underline">Privacy Policy</a>
+                        and to receive marketing communications. You may unsubscribe at any time.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-gray-900 text-gray-400">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+            <div class="space-y-8 xl:col-span-1">
+                <a href="/" class="text-3xl font-display text-white">Codeminal</a>
+                <p class="text-gray-400 text-base">
+                    Architecting transformative technologies with integrity, AI-driven design, and seamless scale.
+                </p>
+            </div>
+            <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+                <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">Solutions</h3>
+                        <ul class="mt-4 space-y-4">
+                            <li><a href="#" class="text-base text-gray-400 hover:text-white">EduAssess AI</a></li>
+                            <li><a href="#" class="text-base text-gray-400 hover:text-white">RailRescue</a></li>
+                            <li><a href="#" class="text-base text-gray-400 hover:text-white">Arket</a></li>
+                        </ul>
+                    </div>
+                    <div class="mt-12 md:mt-0">
+                        <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">Company</h3>
+                        <ul class="mt-4 space-y-4">
+                            <li><a href="#" class="text-base text-gray-400 hover:text-white">About</a></li>
+                            <li><a href="#" class="text-base text-gray-400 hover:text-white">Careers</a></li>
+                            <li><a href="#" class="text-base text-gray-400 hover:text-white">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:grid md:grid-cols-2 md:gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">Legal</h3>
+                        <ul class="mt-4 space-y-4">
+                            <li><a href="#" class="text-base text-gray-400 hover:text-white">Privacy</a></li>
+                            <li><a href="#" class="text-base text-gray-400 hover:text-white">Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-8 border-t border-gray-700 pt-8 text-center">
+            <p class="text-base text-gray-400">&copy; 2024 Codeminal. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<div id="toastContainer"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm');
+
+    const roleOptions = [
+        { value: "ceo", label: "CEO" }, { value: "cto", label: "CTO" },
+        { value: "vp-engineering", label: "VP Engineering" }, { value: "engineering-manager", label: "Engineering Manager" },
+        { value: "developer", label: "Developer" }, { value: "product-manager", label: "Product Manager" },
+        { value: "business-analyst", label: "Business Analyst" }, { value: "other", label: "Other" },
+    ];
+    const jobLevelOptions = [
+        { value: "c-level", label: "C-Level" }, { value: "vp-director", label: "VP/Director" },
+        { value: "manager", label: "Manager" }, { value: "senior", label: "Senior" },
+        { value: "mid-level", label: "Mid-Level" }, { value: "junior", label: "Junior" },
+    ];
+    const interestOptions = [
+        { value: "ai-automation", label: "AI Automation" }, { value: "workflow-optimization", label: "Workflow Optimization" },
+        { value: "integration-solutions", label: "Integration Solutions" }, { value: "enterprise-features", label: "Enterprise Features" },
+        { value: "custom-solutions", label: "Custom Solutions" }, { value: "pricing", label: "Pricing" },
+    ];
+
+    // Populate select dropdowns
+    function populateSelect(selectId, options) {
+        const selectElement = document.getElementById(selectId);
+        options.forEach(option => {
+            const optionElement = document.createElement('option');
+            optionElement.value = option.value;
+            optionElement.textContent = option.label;
+            selectElement.appendChild(optionElement);
+        });
+    }
+    populateSelect('role', roleOptions);
+    populateSelect('jobLevel', jobLevelOptions);
+    populateSelect('interest', interestOptions);
+
+    // Toast notification function
+    function showToast(title, description, variant = 'success') {
+        const toastContainer = document.getElementById('toastContainer');
+        const toast = document.createElement('div');
+        toast.className = `toast-notification ${variant === 'success' ? 'toast-success' : 'toast-error'}`;
+        toast.innerHTML = `<strong class="font-bold">${title}</strong><p class="text-sm">${description}</p>`;
+        toastContainer.appendChild(toast);
+        
+        setTimeout(() => toast.classList.add('show'), 10); // Fade in
+        setTimeout(() => { // Fade out and remove
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 300);
+        }, 5000);
+    }
+
+    // Form submission handler
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        // --- Validation ---
+        const requiredFields = ['firstName', 'lastName', 'email', 'company', 'role', 'jobLevel', 'interest'];
+        for (const field of requiredFields) {
+            if (!data[field] || !data[field].trim()) {
+                const fieldName = field.replace(/([A-Z])/g, ' $1').toLowerCase();
+                showToast("Validation Error", `Please fill in the ${fieldName} field.`, 'error');
+                document.getElementById(field).focus();
+                return;
+            }
+        }
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+            showToast("Invalid Email", "Please enter a valid email address.", 'error');
+            document.getElementById('email').focus();
+            return;
+        }
+
+        // --- Submission Logic ---
+        console.log('Form submitted:', data);
+        
+        showToast("Form Submitted", "Thank you for your interest! Our team will contact you soon.", 'success');
+        
+        form.reset();
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="form-box">
+    <div class="logo">
+      <img src="IMG_9119.jpg" alt="Logo" />
+    </div>
+    <form>
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email" required>
+      <label>Password</label>
+      <input type="password" placeholder="Enter your password" required>
+      <div class="options">
+        <label class="checkbox-wrap">
+          <input type="checkbox"> <span>Remember me</span>
+        </label>
+        <a href="#">Forgot Password?</a>
+      </div>
+      <button type="submit">Login</button>
+      <div class="or-separator">OR</div>
+      <div class="social-btn">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google" />
+        Sign in with Google
+      </div>
+
+       <p class="mt-4 text-center text-sm text-gray-700">
+        Don't have an account?
+        <a href="signup.html" class="text-blue-600 font-semibold hover:underline">Register</a>
+      </p>
+    </form>
+  </div>
+  <script src="scripts.js"></script>
+</body>
+</html>
