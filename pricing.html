@@ -89,8 +89,48 @@
       <a href="login.html" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 text-sm font-semibold">Login</a>
       <a href="signup.html" class="text-white bg-indigo-600 hover:bg-indigo-700 px-5 py-2.5 rounded-md transition-colors duration-300 font-semibold text-sm shadow">Sign up</a>
     </div>
+    <div class="md:hidden">
+  <button id="mobile-menu-toggle" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
+    <!-- Hamburger Icon -->
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+</div>
   </div>
 </header>
+<div id="mobile-menu" class="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white shadow-xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+  
+  <div class="flex justify-between items-center p-4 border-b">
+    
+    <div class="flex items-center gap-4">
+      
+      <a href="index.html" aria-label="Go back to main page" class="text-gray-600 hover:text-indigo-600">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+      </a>
+      
+      <h2 class="text-xl font-display text-gray-800">Menu</h2>
+    </div>
+
+    <button id="close-menu-button" class="text-gray-600 hover:text-indigo-600">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+  <nav class="p-4">
+    <a href="index.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">Home</a>
+    <a href="services.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">Services</a>
+    <a href="solutions.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">Solutions</a>
+    <a href="resources.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">Resources</a>
+    <a href="pricing.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">Pricing</a>
+    <a href="contact.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">Contact</a>
+
+  </nav>
+</div>
     <main>
     <section class="bg-gray-900 pb-12">
         <div class="max-w-7xl mx-auto text-center pt-20 sm:pt-28 px-4 sm:px-6 lg:px-8">
@@ -399,6 +439,25 @@
     }
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenuButton = document.getElementById('close-menu-button');
+
+    // Function to open the menu
+    const openMenu = () => {
+      mobileMenu.classList.remove('translate-x-full');
+    };
+
+    // Function to close the menu
+    const closeMenu = () => {
+      mobileMenu.classList.add('translate-x-full');
+    };
+
+    // Event Listeners
+    mobileMenuToggle.addEventListener('click', openMenu);
+    closeMenuButton.addEventListener('click', closeMenu);
+  });
 
     </script>
 </body>
