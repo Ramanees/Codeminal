@@ -1,37 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Optional: Style for the error message */
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 15px;
+            display: none; /* Hidden by default */
+        }
+    </style>
 </head>
 <body>
-  <div class="form-box">
-    <div class="logo">
-      <img src="IMG_9119.jpg" alt="Logo" />
-    </div>
-    <form >
-      <label>Email</label>
-      <input type="email" placeholder="Enter your email" required>
-      <label>Password</label>
-      <input type="password" placeholder="Enter your password" required>
-      <div class="options">
-        <label class="checkbox-wrap">
-          <input type="checkbox"> <span>Remember me</span>
-        </label>
-        <a href="#">Forgot Password?</a>
-      </div>
-      <button type="submit">Login</button>
-      
+    <div class="form-box">
+        <div class="logo">
+            <img src="IMG_9119.jpg" alt="Logo" />
+        </div>
+        
+        <form id="loginForm">
+            
+            <div id="error-message" class="error-message"></div>
 
-       <p class="mt-4 text-center text-sm text-gray-700">
-        Don't have an account?
-        <a href="signup.html" class="text-blue-600 font-semibold hover:underline">Register</a>
-      </p>
-    </form>
-  </div>
-  <script src="scripts.js"></script>
+            <label>Email</label>
+            <input name="email" type="email" placeholder="Enter your email" required>
+            
+            <label>Password</label>
+            <input name="password" type="password" placeholder="Enter your password" required>
+            
+            <div class="options">
+                <label class="checkbox-wrap">
+                    <input type="checkbox"> <span>Remember me</span>
+                </label>
+                <a href="#">Forgot Password?</a>
+            </div>
+            
+            <button type="submit">Login</button>
+
+            <p class="mt-4 text-center text-sm text-gray-700">
+                Don't have an account?
+                <a href="signup.html" class="text-blue-600 font-semibold hover:underline">Register</a>
+            </p>
+        </form>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('loginForm');
+            const errorMessageDiv = document.getElementById('error-message');
+
+            loginForm.addEventListener('submit', (event) => {
+                // Prevent the page from reloading
+                event.preventDefault(); 
+                
+                // Hide any previous errors
+                errorMessageDiv.style.display = 'none';
+
+                // Get the form data
+                const formData = new FormData(loginForm);
+
+                // Send the data to your PHP script (assuming it's named login_handler.php)
+                fetch('login_handler.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        // If login is successful, redirect to the dashboard or home page
+                        window.location.href = data.redirect;
+                    } else {
+                        // If there's an error, show the message
+                        errorMessageDiv.textContent = data.message;
+                        errorMessageDiv.style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    // Handle network or server errors
+                    console.error('Error:', error);
+                    errorMessageDiv.textContent = 'An unexpected error occurred. Please try again.';
+                    errorMessageDiv.style.display = 'block';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
